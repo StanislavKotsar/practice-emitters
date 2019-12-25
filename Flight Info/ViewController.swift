@@ -64,7 +64,7 @@ class ViewController: UIViewController {
     let emitterCell = CAEmitterCell()
     emitterCell.contents = UIImage(named: "flake.png")?.cgImage
     
-    emitterCell.birthRate = 20
+    emitterCell.birthRate = 150
     emitterCell.lifetime = 3.5
     emitter.emitterCells = [emitterCell]
     emitterCell.yAcceleration = 70.0
@@ -79,6 +79,13 @@ class ViewController: UIViewController {
     emitterCell.redRange   = 0.1
     emitterCell.greenRange = 0.1
     emitterCell.blueRange  = 0.1
+    
+    emitterCell.scale = 0.8
+    emitterCell.scaleRange = 0.8
+    emitterCell.scaleSpeed = -0.15
+    
+    emitterCell.alphaRange = 0.75
+    emitterCell.alphaSpeed = -0.15
   }
   
   //MARK: custom methods
