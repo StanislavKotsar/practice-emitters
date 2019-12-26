@@ -51,8 +51,7 @@ class ViewController: UIViewController {
     //start rotating the flights
     changeFlightDataTo(londonToParis)
     
-    let rect = CGRect(x: 0.0, y: 100.0,
-      width: view.bounds.width, height: 50.0)
+    let rect = CGRect(x: 0.0, y: -70.0, width: view.bounds.width, height: 50.0)
     let emitter = CAEmitterLayer()
     emitter.frame = rect
     view.layer.addSublayer(emitter)
@@ -66,11 +65,12 @@ class ViewController: UIViewController {
     
     emitterCell.birthRate = 150
     emitterCell.lifetime = 3.5
+    emitterCell.lifetimeRange = 1.0
     emitter.emitterCells = [emitterCell]
     emitterCell.yAcceleration = 70.0
     emitterCell.xAcceleration = 10.0
     emitterCell.velocity = 20.0
-    emitterCell.emissionLongitude = .pi * -0.5
+    emitterCell.emissionLongitude = -.pi
     emitterCell.velocityRange = 200.0
     emitterCell.emissionRange = .pi * 0.5
     
