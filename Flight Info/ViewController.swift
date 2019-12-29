@@ -38,6 +38,8 @@ class ViewController: UIViewController {
   
   @IBOutlet var flightStatus: UILabel!
   @IBOutlet var statusBanner: UIImageView!
+    
+    let images: [UIImage] = []
   
   //MARK: view controller methods
   
@@ -63,10 +65,10 @@ class ViewController: UIViewController {
     let emitterCell = CAEmitterCell()
     emitterCell.contents = UIImage(named: "flake.png")?.cgImage
     
-    emitterCell.birthRate = 150
+    emitterCell.birthRate = 75
     emitterCell.lifetime = 3.5
     emitterCell.lifetimeRange = 1.0
-    emitter.emitterCells = [emitterCell]
+    emitter.emitterCells = [emitterCell, configureSecondFlakeCell()]
     emitterCell.yAcceleration = 70.0
     emitterCell.xAcceleration = 10.0
     emitterCell.velocity = 20.0
@@ -88,6 +90,36 @@ class ViewController: UIViewController {
     emitterCell.alphaSpeed = -0.15
   }
   
+    func configureSecondFlakeCell() -> CAEmitterCell {
+        let secondCell = CAEmitterCell()
+        secondCell.birthRate = 75
+        secondCell.lifetime = 3.5
+        secondCell.lifetimeRange = 1.0
+        secondCell.contents = UIImage(named: "flake2.png")?.cgImage
+        
+        secondCell.yAcceleration = 70.0
+        secondCell.xAcceleration = 10.0
+        secondCell.velocity = 20.0
+        secondCell.emissionLongitude = -.pi
+        secondCell.velocityRange = 200.0
+        secondCell.emissionRange = .pi * 0.5
+        
+        secondCell.color = UIColor(red: 0.9, green: 1.0, blue: 1.0, alpha: 1.0).cgColor
+        
+        secondCell.redRange   = 0.1
+        secondCell.greenRange = 0.1
+        secondCell.blueRange  = 0.1
+        
+        secondCell.scale = 0.8
+        secondCell.scaleRange = 0.8
+        secondCell.scaleSpeed = -0.15
+        
+        secondCell.alphaRange = 0.75
+        secondCell.alphaSpeed = -0.15
+        
+        return secondCell
+    }
+    
   //MARK: custom methods
   
   func changeFlightDataTo(_ data: FlightData) {
